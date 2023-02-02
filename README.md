@@ -20,7 +20,7 @@ Project này được xây dựng bằng các module - package sau:
 $ npm install
 ```
 
-##### Project này xây dựng dưới dạng microservice, nên khi chạy, phải chạy đồng thời 2 th
+##### Project này xây dựng dưới dạng microservice, nên khi chạy, phải chạy đồng thời 2 thứ
 ```
 $ npm start
 ```
