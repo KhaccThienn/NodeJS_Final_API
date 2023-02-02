@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2023 at 02:37 AM
+-- Generation Time: Feb 02, 2023 at 10:02 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -30,11 +30,19 @@ USE `nodejs_ss12`;
 --
 
 DROP TABLE IF EXISTS `category`;
-CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `status` tinyint(4) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `status` tinyint(4) DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `status`) VALUES
+(1, 'Quan Ne', 1);
 
 -- --------------------------------------------------------
 
@@ -43,15 +51,24 @@ CREATE TABLE `category` (
 --
 
 DROP TABLE IF EXISTS `product`;
-CREATE TABLE `product` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `price` float NOT NULL,
   `sale_price` float DEFAULT 0,
   `image` text NOT NULL,
   `category_id` int(11) DEFAULT NULL,
-  `status` tinyint(4) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `status` tinyint(4) DEFAULT 1,
+  PRIMARY KEY (`id`),
+  KEY `category_id` (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `price`, `sale_price`, `image`, `category_id`, `status`) VALUES
+(4, 'Product 1', 100099, 0, 'localhost:8000/1675323470833-IMG_3731.JPG', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -60,58 +77,21 @@ CREATE TABLE `product` (
 --
 
 DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` text NOT NULL,
-  `refresh_token` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `refresh_token` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `users`
 --
 
---
--- Indexes for table `category`
---
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product`
---
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `category_id` (`category_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `category`
---
-ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `product`
---
-ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `refresh_token`) VALUES
+(1, 'Le Khac Thien', 'thien@gmail.com', '$2b$10$swRGr6znKPp93tacGjyGAOmLRof7ElAcS.dBp0Yuc0P35okvmpOie', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc1MzI2OTU1LCJleHAiOjE2NzUzMjc1NTV9.8iplEyFbOpiBmXXTTPiTmeLaKlYUMEgntmwGGnvKJVA');
 
 --
 -- Constraints for dumped tables
