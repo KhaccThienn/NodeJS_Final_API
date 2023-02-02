@@ -1,14 +1,8 @@
 ### NodeJS API Token app
-
-## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
-
-## General info
+#### Thông Tin Nhanh Về Dự Án:
 Sử dụng NodeJS để viết API cho các ứng dụng web app, có sử dụng JWT.
 	
-## Technologies
+#### Công Nghệ Sử Dụng:
 Project này được xây dựng bằng các module - package sau: 
 * [ExpressJS](https://expressjs.com/)
 * [Body-Parser](https://www.npmjs.com/package/body-parser)
@@ -19,20 +13,19 @@ Project này được xây dựng bằng các module - package sau:
 * [BCrypt](https://www.npmjs.com/package/bcrypt)
 
 	
-## Setup
-#### Tải các tài nguyên cần thiết bằng câu lệnh sau:
+#### Cài Đặt Dự Án:
+##### Tải các tài nguyên cần thiết bằng câu lệnh sau:
 
 ```
 $ npm install
 ```
 
-#### Project này xây dựng dưới dạng microservice, nên khi chạy, phải chạy đồng thời 2 thứ
-##### Chạy app: 
+##### Project này xây dựng dưới dạng microservice, nên khi chạy, phải chạy đồng thời 2 th
 ```
 $ npm start
 ```
 
-##### Chạy server:
+
 ```
 $ npm run dev
 ```
