@@ -38,12 +38,11 @@ const productController = {
             } else {
                 if (req.file != null) {
                     req.body.image = req.get('host') + `/${req.file.filename}`;
-                    const file_path = "./uploads/"+data[0].image.replace("localhost:8000/", "");
-                    console.log(file_path);
-                    fs.unlink(file_path, (err) => {
+                    const old_file_path = "./uploads/"+data[0].image.replace("localhost:8000/", "");
+                    console.log(old_file_path);
+                    fs.unlink(old_file_path, (err) => {
                         if (err) {
-                            console.error(err);
-                            return;
+                            console.log(err);
                         }
                         console.log('File was deleted');
                     });
@@ -69,8 +68,7 @@ const productController = {
                 const file_path = "./uploads/"+result[0].image.replace("localhost:8000/", "");
                 fs.unlink(file_path, (err) => {
                     if (err) {
-                        console.error(err);
-                        return;
+                        console.log(err);
                     }
                     console.log('File was deleted');
                 });
