@@ -1,6 +1,6 @@
 ### NodeJS API Token app
 #### Thông Tin Nhanh Về Dự Án:
-Sử dụng NodeJS để viết API cho các ứng dụng web app, có sử dụng JWT.
+Sử dụng NodeJS để viết API, có sử dụng JWT.
 	
 #### Công Nghệ Sử Dụng:
 Project này được xây dựng bằng các module - package sau: 
