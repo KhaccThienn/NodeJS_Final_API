@@ -36,7 +36,9 @@ const categoryController = {
             if (err) {
                 res.json(err);
             } else {
-                res.status(200).json({data, message: "Updated category"});
+                res.status(200).json({
+                    data, message: "Updated category"
+                });
             }
         });
     },
@@ -46,7 +48,9 @@ const categoryController = {
             if (err) {
                 res.json(err);
             } else {
-                res.status(200).json({data, message: "Deleted category"});
+                res.status(200).json({
+                    data, message: "Deleted category"
+                });
             }
         });
     }

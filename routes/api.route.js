@@ -15,8 +15,8 @@ const api_routes = (app) => {
     // Product API routes
     app.get('/api/product', isAuth, productController.getAll);
     app.get('/api/product/:id', isAuth, productController.getByID);
-    app.post('/api/product', [upload.single('image'), isAuth] ,productController.create); 
-    app.put('/api/product/:id', [upload.single('image'), isAuth],productController.update);
+    app.post('/api/product', [upload.single('image'), isAuth], productController.create);
+    app.put('/api/product/:id', [upload.single('image'), isAuth], productController.update);
     app.delete('/api/product/:id', isAuth, productController.delete);
 };
 

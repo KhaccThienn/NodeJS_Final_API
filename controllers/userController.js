@@ -49,11 +49,15 @@ const usersController = {
                             res.json(err2);
                         } else {
                             if (result) {
-                                const token = generateToken({id: data[0].id});
-                                users.setToken(data[0].id, {refresh_token: token.refresh_token}, (err3, tokenData) => {
+                                const token = generateToken({
+                                    id: data[0].id
+                                });
+                                users.setToken(data[0].id, {
+                                    refresh_token: token.refresh_token
+                                }, (err3, tokenData) => {
                                     if (err3) {
                                         res.json(err3);
-                                    } else {    
+                                    } else {
                                         res.status(200).json({tokenData, token});
                                     }
                                 });
@@ -78,16 +82,24 @@ const usersController = {
                 } else {
                     try {
                         var decoded = jwt.verify(refresh_token, process.env.SECRET_REFRESH_TOKEN_KEY);
-                        const token = generateToken({id: decoded.id});
-                        users.setToken(decoded.id, {refresh_token: token.refresh_token}, (err2, tokenData) => {
+                        const token = generateToken({
+                            id: decoded.id
+                        });
+                        users.setToken(decoded.id, {
+                            refresh_token: token.refresh_token
+                        }, (err2, tokenData) => {
                             if (err2) {
                                 res.json(err2);
                             } else {    
-                                res.status(200).json({tokenData, token});
+                                res.status(200).json({
+                                    tokenData, token
+                                });
                             }
                         });
                     } catch (error) {
-                        res.status(403).json({ message: err });
+                        res.status(403).json({
+                            message: err 
+                        });
                     }
                 }
             });
